@@ -75,12 +75,28 @@ namespace Buh.ConsoleApp
                     Password = _password,
                     Settings = scope
                 });
+                string message;
+                switch (_random.Next(0, 3))
+                {
+                    case 0:
+                        message = "Б" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "y")) + "х!";
+                        break;
+                    case 1:
+                        message = "Ен" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "о")) + "т!";
+                        break;
+                    case 2:
+                        message = "Прип" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "о")) + "лз енот.";
+                        break;
+                    default:
+                        message = "С енотом что-то случилось!";
+                        break;
+                }
 
                 vk.Wall.Post(
                     new WallPostParams
                     {
                         OwnerId = -134042408,
-                        Message = "Б" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "y")) + "х!",
+                        Message = message,
                         FromGroup = true,
                         PublishDate = publishDate
                     });
