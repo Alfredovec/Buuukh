@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Quartz;
 using Quartz.Impl;
-using Quartz.Impl.Triggers;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model.RequestParams;
@@ -85,7 +81,7 @@ namespace Buh.ConsoleApp
                         message = "Ен" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "о")) + "т!";
                         break;
                     case 2:
-                        message = "Прип" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "о")) + "лз енот.";
+                        message = "Прип" + string.Join("", Enumerable.Range(0, _random.Next(2, 6)).Select(x => "о")) + "лз енот";
                         break;
                     default:
                         message = "С енотом что-то случилось!";
