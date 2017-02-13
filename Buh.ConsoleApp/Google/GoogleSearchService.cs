@@ -12,12 +12,7 @@ namespace ConsoleApplication1
     internal class GoogleSearchService
     {
         private const string GoogleApiEndpointUrl = "https://www.googleapis.com/customsearch/v1";
-        private string _apiKey;
-
-        public GoogleSearchService(string apiKey)
-        {
-            _apiKey = apiKey;
-        }
+        private const string ApiKey = "AIzaSyAqduwphG2hbWtO_vEMLSpYNrmks3iDxsA";
 
         public async Task<IEnumerable<GoogleImage>> SearchImagesAsync(string query, FileType filetype, int start = 1, int number = 10)
         {
@@ -32,7 +27,7 @@ namespace ConsoleApplication1
                 ["imgSize"] = imageSize,
                 ["searchType"] = searchType,
                 ["filetype"] = FileType.Jpg.ToString(),
-                ["key"] = _apiKey,
+                ["key"] = ApiKey,
                 ["cx"] = cx
             };
 
@@ -62,7 +57,7 @@ namespace ConsoleApplication1
                         .Aggregate("?", (s, pair) => s + $"{pair.Key}={pair.Value}&")
                         .Trim('&');
 
-                var requestUrl = "https://www.googleapis.com/customsearch/v1" + parametersPath;
+                var requestUrl = GoogleApiEndpointUrl + parametersPath;
                 var response = await httpClient.GetAsync(requestUrl);
                 var responseJson = await response.Content.ReadAsStringAsync();
 

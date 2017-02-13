@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Quartz;
+﻿using Quartz;
 using VkNet;
 using VkNet.Enums.Filters;
 
@@ -32,16 +27,16 @@ namespace Buh.ConsoleApp
         private void Authorize(IJobExecutionContext context)
         {
             var details = context.JobDetail;
-            var login = details.JobDataMap.GetString("login");
-            var password = details.JobDataMap.GetString("password");
+            var login = details.JobDataMap["login"];
+            var password = details.JobDataMap["password"];
 
             if (Vk.IsAuthorized == false)
             {
                 Vk.Authorize(new ApiAuthParams
                 {
                     ApplicationId = ApplicationId,
-                    Login = login,
-                    Password = password,
+                    Login = (string)login,
+                    Password = (string)password,
                     Settings = Settings.All
                 });
             }

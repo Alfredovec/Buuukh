@@ -38,8 +38,8 @@ namespace Buh.ConsoleApp
         {
             var buhScheduler = new VkScheduler();
             buhScheduler.Initialize();
-            buhScheduler.AddVkJob<BuhJob>(vkLogin, vkPassword, intervalHours: 24);
             buhScheduler.Start();
+            buhScheduler.AddVkJob<BuhJob>(vkLogin, vkPassword, intervalHours: 24);
         }
     }
 }

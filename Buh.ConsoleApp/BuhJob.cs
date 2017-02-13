@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Buh.ConsoleApp.Google;
 using ConsoleApplication1;
-using Quartz;
-using VkNet;
-using VkNet.Enums.Filters;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 
@@ -20,10 +17,10 @@ namespace Buh.ConsoleApp
         private readonly BuhService _buhService;
         private readonly GoogleSearchService _googleSearch;
 
-        public BuhJob(BuhService buhService, GoogleSearchService googleSearch)
+        public BuhJob()
         {
-            _buhService = buhService;
-            _googleSearch = googleSearch;
+            _buhService = new BuhService();
+            _googleSearch = new GoogleSearchService();
         }
 
         protected override void Execute()
