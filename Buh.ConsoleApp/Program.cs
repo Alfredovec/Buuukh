@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Buh.ConsoleApp.Scheduler;
+using Buh.ConsoleApp.Scheduler.Jobs;
 using Quartz;
 using Quartz.Impl;
 using VkNet;

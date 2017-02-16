@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Buh.ConsoleApp.Scheduler.Jobs;
 using Quartz;
 using Quartz.Impl;
 
-namespace Buh.ConsoleApp
+namespace Buh.ConsoleApp.Scheduler
 {
     public class VkScheduler
     {

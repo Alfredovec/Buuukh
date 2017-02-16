@@ -1,6 +1,6 @@
 using System;
 
-namespace Buh.ConsoleApp.Google
+namespace Buh.ConsoleApp.Enums 
 {
     [Flags]
     internal enum FileType
