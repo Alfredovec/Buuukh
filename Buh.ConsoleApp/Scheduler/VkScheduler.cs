@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Buh.ConsoleApp.Scheduler.Jobs;
 using Quartz;
 using Quartz.Impl;
 
-namespace Buh.ConsoleApp
+namespace Buh.ConsoleApp.Scheduler
 {
     public class VkScheduler
     {
@@ -35,6 +36,7 @@ namespace Buh.ConsoleApp
             var trigger = TriggerBuilder.Create()
                 .WithIdentity("vkTrigger", "vkGroup")
                 .StartNow()
+                .UsingJobData(new JobDataMap(jobParams))
                 .WithSimpleSchedule(x => x
                     .WithIntervalInHours(intervalHours)
                     .RepeatForever())

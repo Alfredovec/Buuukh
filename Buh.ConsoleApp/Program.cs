@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Buh.ConsoleApp.Scheduler;
+using Buh.ConsoleApp.Scheduler.Jobs;
 using Quartz;
 using Quartz.Impl;
 using VkNet;
@@ -38,8 +40,8 @@ namespace Buh.ConsoleApp
         {
             var buhScheduler = new VkScheduler();
             buhScheduler.Initialize();
-            buhScheduler.AddVkJob<BuhJob>(vkLogin, vkPassword, intervalHours: 24);
             buhScheduler.Start();
+            buhScheduler.AddVkJob<BuhJob>(vkLogin, vkPassword, intervalHours: 24);
         }
     }
 }
