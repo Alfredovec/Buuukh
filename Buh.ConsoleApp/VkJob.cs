@@ -21,13 +21,13 @@ namespace Buh.ConsoleApp
             Vk.OnTokenExpires += api => api.RefreshToken();
         }
 
-        protected abstract void Execute();
-
         public void Execute(IJobExecutionContext context)
         {
             Authorize(context);
             Execute();
         }
+
+        protected abstract void Execute();
 
         private void Authorize(IJobExecutionContext context)
         {
