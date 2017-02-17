@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using Buh.ConsoleApp.Models;
+using Buh.Integration.Vk.Models;
 using Newtonsoft.Json.Linq;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 
-namespace Buh.ConsoleApp.Services
+namespace Buh.Integration.Vk
 {
-    public class VkService
+    public class VkClient
     {
         protected const ulong ApplicationId = 5749376;
 
         protected readonly VkApi Vk;
 
-        public VkService()
+        public VkClient()
         {
             Vk = new VkApi();
             Vk.OnTokenExpires += api => api.RefreshToken();
@@ -47,18 +47,18 @@ namespace Buh.ConsoleApp.Services
 
         private JObject PhotosUploadPhotoToUrl(string url, string filePath)
         {
-            WebClient myWebClient = new WebClient();
-            byte[] responseArray = myWebClient.UploadFile(url, filePath);
+            var myWebClient = new WebClient();
+            var responseArray = myWebClient.UploadFile(url, filePath);
             var json = JObject.Parse(Encoding.ASCII.GetString(responseArray));
 
             return json;
         }
 
-        private UploadServer GetWallUploadServer(int groupId)
+        private VkUploadServer GetWallUploadServer(int groupId)
         {
             var uploadServerInfo = Vk.Photo.GetWallUploadServer(groupId);
 
-            return new UploadServer
+            return new VkUploadServer
             {
                 UploadUrl = uploadServerInfo.UploadUrl
             };
@@ -89,5 +89,16 @@ namespace Buh.ConsoleApp.Services
                 Attachments = attachments
             });
         }
+    }
+
+    public class PostGroupWallOptions
+    {
+        public int GroupId { get; set; }
+
+        public string Message { get; set; }
+
+        public DateTime PublishDate { get; set; }
+
+        public IEnumerable<MediaAttachment> MediaAttachments { get; set; }
     }
 }

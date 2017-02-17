@@ -1,6 +1,6 @@
 using System;
 
-namespace Buh.ConsoleApp.Enums 
+namespace Buh.Shared.Enums 
 {
     [Flags]
     internal enum FileType

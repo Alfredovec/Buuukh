@@ -1,4 +1,4 @@
-﻿namespace Buh.ConsoleApp.Models
+﻿namespace Buh.Integration.Google.Models
 {
     public class GoogleImage
     {

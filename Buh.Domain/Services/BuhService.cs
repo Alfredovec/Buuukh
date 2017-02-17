@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Buh.ConsoleApp.Services
+namespace Buh.Domain.Services
 {
     public class BuhService
     {

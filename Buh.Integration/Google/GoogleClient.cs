@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Buh.ConsoleApp.Enums;
-using Buh.ConsoleApp.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Buh.Integration.Google.Models;
 
-namespace Buh.ConsoleApp.Services
+namespace Buh.Integration.Google
 {
-    internal class GoogleSearchService
+    public class GoogleClient
     {
         private const string GoogleApiEndpointUrl = "https://www.googleapis.com/customsearch/v1";
         private const string ApiKey = "AIzaSyAqduwphG2hbWtO_vEMLSpYNrmks3iDxsA";

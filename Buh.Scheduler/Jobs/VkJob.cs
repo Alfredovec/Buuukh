@@ -1,10 +1,4 @@
-﻿using System;
-using Buh.ConsoleApp.Services;
-using Quartz;
-using VkNet;
-using VkNet.Enums.Filters;
-
-namespace Buh.ConsoleApp.Scheduler.Jobs
+﻿namespace Buh.Scheduler.Jobs
 {
     public abstract class VkJob : IJob
     {

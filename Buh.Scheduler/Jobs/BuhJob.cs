@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Buh.ConsoleApp.Enums;
-using Buh.ConsoleApp.Services;
-using VkNet.Model.Attachments;
 
-namespace Buh.ConsoleApp.Scheduler.Jobs
+namespace Buh.Scheduler.Jobs
 {
     internal class BuhJob : VkJob
     {
@@ -32,7 +28,7 @@ namespace Buh.ConsoleApp.Scheduler.Jobs
 
             var message = _buhService.Generate();
             var publishDate = DateTime.Now.AddHours(randomHours).AddMinutes(randomMinutes);
-            var racoonImage = googleImages.ElementAt(3).Link;
+            var racoonImage = Enumerable.ElementAt(googleImages, 3).Link;
             var photo = VkService.GetPhoto(racoonImage, Math.Abs(GroupId));
             var attachments = new List<MediaAttachment>
             {
