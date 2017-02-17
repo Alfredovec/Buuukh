@@ -34,7 +34,7 @@ namespace Buh.Scheduler.Jobs
 
             var message = _buhService.Generate();
             var publishDate = DateTime.Now.AddHours(randomHours).AddMinutes(randomMinutes);
-            var racoonImage = Enumerable.ElementAt(googleImages, 3).Link;
+            var racoonImage = googleImages.ElementAt(3).Link;
             var photo = VkClient.GetPhoto(racoonImage, Math.Abs(GroupId));
             var attachments = new List<MediaAttachment>
             {
@@ -47,7 +47,15 @@ namespace Buh.Scheduler.Jobs
                 }
             };
             
-            VkClient.PostGroupWall(GroupId, message, publishDate, attachments);
+            var postOptions = new VkPostGroupWallOptions
+            {
+                GroupId = GroupId,
+                Message = message,
+                PublishDate = publishDate,
+                MediaAttachments = attachments
+            };
+
+            VkClient.PostGroupWall(postOptions);
         }
     }
 }

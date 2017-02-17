@@ -57,6 +57,7 @@
     <Compile Include="Google\Models\GoogleImage.cs" />
     <Compile Include="Vk\Models\VkPhoto.cs" />
     <Compile Include="Vk\Models\VkUploadServer.cs" />
+    <Compile Include="Vk\Models\VkPostGroupWallOptions.cs" />
     <Compile Include="Vk\VkClient.cs" />
   </ItemGroup>
   <ItemGroup>

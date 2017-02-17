@@ -78,27 +78,16 @@ namespace Buh.Integration.Vk
             }
         }
 
-        public void PostGroupWall(int groupId, string message, DateTime publishDate, List<MediaAttachment> attachments)
+        public void PostGroupWall(VkPostGroupWallOptions options)
         {
             Vk.Wall.Post(new WallPostParams
             {
-                OwnerId = groupId,
-                Message = message,
+                OwnerId = options.GroupId,
+                Message = options.Message,
                 FromGroup = true,
-                PublishDate = publishDate,
-                Attachments = attachments
+                PublishDate = options.PublishDate,
+                Attachments = options.MediaAttachments
             });
         }
-    }
-
-    public class PostGroupWallOptions
-    {
-        public int GroupId { get; set; }
-
-        public string Message { get; set; }
-
-        public DateTime PublishDate { get; set; }
-
-        public IEnumerable<MediaAttachment> MediaAttachments { get; set; }
     }
 }

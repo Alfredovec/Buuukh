@@ -51,3 +51,5 @@ C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\obj\Debug\Buh.ConsoleApp.csprojResolveA
 C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\obj\Debug\Buh.ConsoleApp.exe
 C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\obj\Debug\Buh.ConsoleApp.pdb
 C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\bin\Debug\.gitoptions
+C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\bin\Debug\Buh.Security.dll
+C:\Data\Nowork\MyApps\Buh\Buh.ConsoleApp\bin\Debug\Buh.Security.pdb
