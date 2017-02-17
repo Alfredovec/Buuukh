@@ -1,12 +1,15 @@
-﻿namespace Buh.Scheduler.Jobs
+﻿using Buh.Integration.Vk;
+using Quartz;
+
+namespace Buh.Scheduler.Jobs
 {
     public abstract class VkJob : IJob
     {
-        protected readonly VkService VkService;
+        protected readonly VkClient VkClient;
 
         protected VkJob()
         {
-            VkService = new VkService();
+            VkClient = new VkClient();
         }
 
         protected abstract void Execute();
@@ -17,7 +20,7 @@
             var login = (string)details.JobDataMap["login"];
             var password = (string)details.JobDataMap["password"];
 
-            VkService.Authorize(login, password);
+            VkClient.Authorize(login, password);
 
             Execute();
         }

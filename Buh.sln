@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buh.Scheduler", "Buh.Schedu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buh.Domain", "Buh.Domain\Buh.Domain.csproj", "{077BC8FD-AB28-4E50-B29A-7FACD7A604DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buh.Security", "Buh.Security\Buh.Security.csproj", "{46ABE38A-8304-4CD0-B913-32925866BFC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{077BC8FD-AB28-4E50-B29A-7FACD7A604DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{077BC8FD-AB28-4E50-B29A-7FACD7A604DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{077BC8FD-AB28-4E50-B29A-7FACD7A604DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46ABE38A-8304-4CD0-B913-32925866BFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46ABE38A-8304-4CD0-B913-32925866BFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46ABE38A-8304-4CD0-B913-32925866BFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46ABE38A-8304-4CD0-B913-32925866BFC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

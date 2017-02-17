@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using Buh.Scheduler.Jobs;
+using Quartz;
+using Quartz.Impl;
 
 namespace Buh.Scheduler
 {

@@ -80,7 +80,20 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Buh.Domain\Buh.Domain.csproj">
+      <Project>{077BC8FD-AB28-4E50-B29A-7FACD7A604DC}</Project>
+      <Name>Buh.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Buh.Scheduler\Buh.Scheduler.csproj">
+      <Project>{19F81F47-82B5-450E-8A95-B56E4D938C04}</Project>
+      <Name>Buh.Scheduler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Buh.Security\Buh.Security.csproj">
+      <Project>{46ABE38A-8304-4CD0-B913-32925866BFC0}</Project>
+      <Name>Buh.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

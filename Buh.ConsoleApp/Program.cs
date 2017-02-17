@@ -1,24 +1,28 @@
 ﻿using System;
+using Buh.Domain.Services;
+using Buh.Scheduler;
+using Buh.Scheduler.Jobs;
+using Buh.Security;
 
 namespace Buh.ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Please, provide vk login and password");
-                Console.ReadLine();
-                return;
-            }
+        private static readonly PasswordProvider PasswordProvider;
+        private static readonly BuhService BuhService;
 
+        static Program()
+        {
+            PasswordProvider = new PasswordProvider();
+            BuhService = new BuhService();
+        }
+
+        static void Main()
+        {
             try
             {
-                var login = args[0];
-                var password = args[1];
-
-                StartBuh(login, password);
+                var password = PasswordProvider.GetPassword();
+                Start("rud.sergey.v@gmail.com", password);
             }
             catch (Exception e)
             {
@@ -26,13 +30,13 @@ namespace Buh.ConsoleApp
                 Console.ReadLine();
             }
         }
-        
-        private static void StartBuh(string vkLogin, string vkPassword)
+
+        public static void Start(string login, string password)
         {
             var buhScheduler = new VkScheduler();
             buhScheduler.Initialize();
             buhScheduler.Start();
-            buhScheduler.AddVkJob<BuhJob>(vkLogin, vkPassword, intervalHours: 24);
+            buhScheduler.AddVkJob<BuhJob>(login, password, intervalHours: 24);
         }
     }
 }
