@@ -18,10 +18,18 @@ namespace Buh.Integration.Vk
 
         protected readonly VkApi Vk;
 
+        protected Func<string> OnDuo;
+
         public VkClient()
         {
             Vk = new VkApi();
             Vk.OnTokenExpires += api => api.RefreshToken();
+
+            OnDuo = () =>
+            {
+                var code = Console.ReadLine();
+                return code;
+            };
         }
 
         public Photo GetPhoto(string imageSrc, int groupId)
@@ -73,8 +81,10 @@ namespace Buh.Integration.Vk
                     ApplicationId = ApplicationId,
                     Login = login,
                     Password = password,
-                    Settings = Settings.All
+                    Settings = Settings.All,
+                    TwoFactorAuthorization = OnDuo
                 });
+                
             }
         }
 
