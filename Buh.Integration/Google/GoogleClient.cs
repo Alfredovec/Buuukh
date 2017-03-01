@@ -67,5 +67,17 @@ namespace Buh.Integration.Google
                 return responseObject;
             }
         }
+
+        public GoogleImage GetRandomImage(string query, FileType type)
+        {
+            var random = new Random();
+            var randomStart = random.Next(100);
+
+            var googleImages = SearchImagesAsync(query, type, randomStart, number: 1).Result;
+
+            var singleImage = googleImages.Single();
+
+            return singleImage;
+        }
     }
 }

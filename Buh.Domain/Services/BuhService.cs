@@ -5,7 +5,7 @@ namespace Buh.Domain.Services
 {
     public class BuhService
     {
-        public string Generate()
+        public string GenerateRandomMessage()
         {
             var random = new Random();
 

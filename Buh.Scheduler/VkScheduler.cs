@@ -36,7 +36,6 @@ namespace Buh.Scheduler
             var trigger = TriggerBuilder.Create()
                 .WithIdentity("vkTrigger", "vkGroup")
                 .StartNow()
-                .UsingJobData(new JobDataMap(jobParams))
                 .WithSimpleSchedule(x => x
                     .WithIntervalInHours(intervalHours)
                     .RepeatForever())
