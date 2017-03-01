@@ -1,3 +1,6 @@
+*.gitoptions*
+packages.config
+
 # User-specific files
 *.suo
 *.user
