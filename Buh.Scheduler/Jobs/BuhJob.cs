@@ -35,7 +35,7 @@ namespace Buh.Scheduler.Jobs
             do
             {
                 racoonImage = _googleClient.GetRandomImage(SearchQuery, Type);
-            } while (KnownExtensions.Any(knownExtension => racoonImage.Link.EndsWith("." + knownExtension, StringComparison.InvariantCultureIgnoreCase)));
+            } while (!KnownExtensions.Any(knownExtension => racoonImage.Link.EndsWith("." + knownExtension, StringComparison.InvariantCultureIgnoreCase)));
             
             var positiveGroupId = Math.Abs(GroupId);
             var photo = VkClient.GetPhoto(racoonImage.Link, positiveGroupId);

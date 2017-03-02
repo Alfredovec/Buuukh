@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using Buh.Integration.Vk.Models;
 using Newtonsoft.Json.Linq;
 using VkNet;
@@ -27,7 +30,21 @@ namespace Buh.Integration.Vk
 
             OnDuo = () =>
             {
-                var code = Console.ReadLine();
+                var code = default(string);
+                while (code == null)
+                {
+                    Thread.Sleep(1000);
+                    string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    if (!File.Exists(executableLocation + "\\code.txt"))
+                        continue;
+
+                    using (var streamReader = new StreamReader("code.txt"))
+                    {
+                        code = streamReader.ReadLine();
+                    }
+                }
+
+                File.Delete("code.txt");
                 return code;
             };
         }
